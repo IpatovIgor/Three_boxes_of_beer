@@ -1,0 +1,155 @@
+body {
+    margin: 0;
+    background-color: #020617;
+    color: #e5e7eb;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 24px 32px;
+    gap: 32px;
+    box-sizing: border-box;
+}
+
+.session-card {
+    width: 100%;
+    max-width: 960px;
+    color: #9ca3af;
+    background-color: #020617;
+    border-radius: 24px;
+    padding: 32px 40px 40px;
+    box-sizing: border-box;
+}
+
+.session-card h1 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #f9fafb;
+    margin: 0 0 10px 0;
+}
+
+.session-card p {
+    font-size: 14px;
+    font-weight: normal;
+    color: #9ca3af;
+    margin: 0 0 24px 0;
+}
+
+.panel {
+    background-color: #020617;
+    border-radius: 24px;
+    padding: 24px 24px 28px;
+    box-sizing: border-box;
+}
+
+.panel h2 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6b7280;
+    margin: 18px 0 8px 0;
+}
+
+.panel h2:first-of-type {
+    margin-top: 0;
+}
+
+.div-group,
+.level-group,
+.count-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.dir-option input,
+.level-option input,
+.count-option input {
+    display: none;
+}
+
+.dir-option span,
+.level-option span,
+.count-option span {
+    display: inline-block;
+    padding: 8px 20px;
+    background: #020617;
+    color: #9ca3af;
+    font-size: 14px;
+    font-weight: normal;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid #111827;
+}
+
+.dir-option span:hover,
+.level-option span:hover,
+.count-option span:hover {
+    background: #1e293b;
+    color: #f9fafb;
+}
+
+.dir-option input:checked + span,
+.level-option input:checked + span,
+.count-option input:checked + span {
+    background: #06b6d4;
+    color: #f9fafb;
+    border-color: #06b6d4;
+}
+
+.panel button {
+    margin-top: 32px;
+    width: 100%;
+    padding: 14px 0;
+    border-radius: 12px;
+    border: none;
+    background-color: #06b6d4;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 500;
+    color: #f9fafb;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.panel button:hover {
+    background-color: #0891b2;
+}
+
+.statistic {
+    width: 100%;
+    max-width: 960px;
+    font-family: 'JetBrains Mono', monospace;
+    color: #9ca3af;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.statistic div {
+    border-radius: 14px;
+    background-color: #020617;
+    padding: 18px 20px;
+    min-height: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.statistic div .num {
+    font-size: 20px;
+    color: #f9fafb;
+    margin: 0 0 4px 0;
+}
+
+.statistic div .str {
+    font-size: 12px;
+    color: #9ca3af;
+    margin: 0;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новая сессия</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="page">
+    <section class="session-card">
+        <h1>Новая сессия</h1>
+        <p>Настройте параметры и начните подготовку к техническому собеседованию</p>
+        <section class="panel">
+            <form action="/create-session" method="POST">
+                <h2>Направление</h2>
+                <div class="div-group">
+                    <label class="dir-option">
+                        <input type="radio" name="direction" value="frontend" checked>
+                        <span>Frontend</span>
+                    </label>
+                    <label class="dir-option">
+                        <input type="radio" name="direction" value="backend">
+                        <span>Backend</span>
+                    </label>
+                    <label class="dir-option">
+                        <input type="radio" name="direction" value="fullstack">
+                        <span>Fullstack</span>
+                    </label>
+                    <label class="dir-option">
+                        <input type="radio" name="direction" value="data-science">
+                        <span>Data Science</span>
+                    </label>
+                    <label class="dir-option">
+                        <input type="radio" name="direction" value="devops">
+                        <span>DevOps</span>
+                    </label>
+                </div>
+
+                <h2>Уровень</h2>
+                <div class="level-group">
+                    <label class="level-option">
+                        <input type="radio" name="level" value="junior">
+                        <span>Junior</span>
+                    </label>
+                    <label class="level-option">
+                        <input type="radio" name="level" value="middle">
+                        <span>Middle</span>
+                    </label>
+                    <label class="level-option">
+                        <input type="radio" name="level" value="senior" checked>
+                        <span>Senior</span>
+                    </label>
+                </div>
+
+                <h2>Количество вопросов</h2>
+                <div class="count-group">
+                    <label class="count-option">
+                        <input type="radio" name="count" value="5">
+                        <span>5</span>
+                    </label>
+                    <label class="count-option">
+                        <input type="radio" name="count" value="10" checked>
+                        <span>10</span>
+                    </label>
+                    <label class="count-option">
+                        <input type="radio" name="count" value="15">
+                        <span>15</span>
+                    </label>
+                    <label class="count-option">
+                        <input type="radio" name="count" value="20">
+                        <span>20</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="primary-btn">Создать сессию</button>
+            </form>
+        </section>
+    </section>
+
+    <section class="statistic">
+        <div class="session-count-stat">
+            <p class="num">20</p>
+            <p class="str">Сессий пройдено</p>
+        </div>
+        <div class="session-assessment-stat">
+            <p class="num">7.8</p>
+            <p class="str">Средняя оценка</p>
+        </div>
+        <div class="frequent-stat">
+            <p class="num">Frontend</p>
+            <p class="str">Основное направление</p>
+        </div>
+    </section>
+</main>
+</body>
+</html>
