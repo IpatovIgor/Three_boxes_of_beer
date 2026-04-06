@@ -29,7 +29,10 @@
             <form action="/answer" method="post" class="answer-form">
                 <label for="answer" class="answer-label">Ваш ответ</label>
                 <textarea id="answer" name="answer" placeholder="Введите код или текст..."></textarea>
-                <button type="submit" class="answer-submit">Отправить ответ</button>
+                <div class="answer-actions">
+                    <button type="submit" class="answer-submit">Отправить ответ</button>
+                    <button type="button" class="next-task-btn is-hidden" hidden>Следующее задание</button>
+                </div>
             </form>
         </article>
 
