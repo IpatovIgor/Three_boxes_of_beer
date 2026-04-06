@@ -9,16 +9,16 @@
 <body>
     <header class="task-header">
         <div class="task-header__meta">
-            <span class="task-header__track">Frontend · Senior 10 · вопросов</span>
+            <span id="session-track" class="task-header__track">Frontend · Senior · 10 вопросов</span>
         </div>
-        <h1 class="task-header__title">Вопрос 3 из 10</h1>
+        <h1 id="session-progress-title" class="task-header__title">Вопрос 1 из 10</h1>
     </header>
 
     <main class="task-page">
         <article class="task-block">
             <p class="task-inf">
                 <span class="task-type">JavaScript</span>
-                <span class="task-number">Вопрос 3 из 10</span>
+                <span id="task-number" class="task-number">Вопрос 1 из 10</span>
             </p>
             <p class="task-text">
                 Объясните разницу между Event Loop, Call Stack и Callback Queue в JavaScript. Как они взаимодействуют при обработке асинхронного кода?
@@ -26,14 +26,17 @@
         </article>
 
         <article class="answer-block">
-            <form action="/answer" method="post" class="answer-form">
+            <form action="#" method="post" class="answer-form" id="answer-form">
                 <label for="answer" class="answer-label">Ваш ответ</label>
                 <textarea id="answer" name="answer" placeholder="Введите код или текст..."></textarea>
-                <button type="submit" class="answer-submit">Отправить ответ</button>
+                <div class="answer-actions">
+                    <button type="submit" class="answer-submit" id="answer-submit">Отправить ответ</button>
+                    <button type="button" class="next-task-btn is-hidden" id="next-task-btn" hidden>Следующее задание</button>
+                </div>
             </form>
         </article>
 
-        <article class="feedback-block">
+        <article class="feedback-block is-hidden" id="feedback-block" hidden>
             <header class="feedback-header">
                 <p class="feedback-title">Обратная связь</p>
                 <p class="feedback-score">8 / 10</p>
@@ -44,5 +47,6 @@
             </p>
         </article>
     </main>
+    <script src="task-session.js"></script>
 </body>
 </html>
