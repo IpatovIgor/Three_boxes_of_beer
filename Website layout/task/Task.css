@@ -119,6 +119,12 @@ body {
     background-color: #22d3ee;
 }
 
+.answer-submit:disabled {
+    background-color: #155e75;
+    color: #a5f3fc;
+    cursor: not-allowed;
+}
+
 .answer-actions {
     margin-top: 16px;
     display: flex;
