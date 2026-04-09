@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="ResultPage.css">
+</head>
+<body>
+<main>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <nav class="menu" id="sideMenu">
+        <ul>
+            <li class="menu-item">На главную</li>
+        </ul>
+    </nav>
+
+    <div class="result-panel">
+        <h1>Результаты сессии</h1>
+        <p class="feedback-header">Frontend Senior завершено</p>
+
+        <div class="stat-panel">
+            <div class="stat">
+                <p class="num">8.2</p>
+                <p class="str">Средний балл</p>
+            </div>
+            <div class="stat">
+                <p class="num">10</p>
+                <p class="str">Вопросов</p>
+            </div>
+            <div class="stat">
+                <p class="num">18 мин</p>
+                <p class="str">Времени</p>
+            </div>
+        </div>
+
+        <div class="wrang-panel">
+            <h3>Слабые темы</h3>
+            <div class="wrang">
+                <p class="topek">Прототипное наследование</p>
+                <p class="points">8/10</p>
+            </div>
+
+            <div class="wrang">
+                <p class="topek">Замыкания в JavaScript</p>
+                <p class="points">7/10</p>
+            </div>
+
+            <div class="wrang">
+                <p class="topek">Event Loop</p>
+                <p class="points">9/10</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+</main>
+
+<script src="ResultPage.js"></script>
+</body>
+</html>

@@ -7,46 +7,59 @@
     <link rel="stylesheet" href="Task.css">
 </head>
 <body>
-    <header class="task-header">
-        <div class="task-header__meta">
-            <span id="session-track" class="task-header__track">Frontend · Senior · 10 вопросов</span>
-        </div>
-        <h1 id="session-progress-title" class="task-header__title">Вопрос 1 из 10</h1>
-    </header>
+<!-- Кнопка-гамбургер -->
+<button class="menu-toggle" id="menuToggle">☰</button>
 
-    <main class="task-page">
-        <article class="task-block">
-            <p class="task-inf">
-                <span class="task-type">JavaScript</span>
-                <span id="task-number" class="task-number">Вопрос 1 из 10</span>
-            </p>
-            <p class="task-text">
-                Объясните разницу между Event Loop, Call Stack и Callback Queue в JavaScript. Как они взаимодействуют при обработке асинхронного кода?
-            </p>
-        </article>
+<!-- Боковое меню -->
+<nav class="menu" id="sideMenu">
+    <ul>
+        <li class="menu-item">На главную</li>
+    </ul>
+</nav>
 
-        <article class="answer-block">
-            <form action="#" method="post" class="answer-form" id="answer-form">
-                <label for="answer" class="answer-label">Ваш ответ</label>
-                <textarea id="answer" name="answer" placeholder="Введите код или текст..."></textarea>
-                <div class="answer-actions">
-                    <button type="submit" class="answer-submit" id="answer-submit">Отправить ответ</button>
-                    <button type="button" class="next-task-btn is-hidden" id="next-task-btn" hidden>Следующее задание</button>
-                </div>
-            </form>
-        </article>
+<!-- Оверлей -->
+<div class="menu-overlay" id="menuOverlay"></div>
 
-        <article class="feedback-block is-hidden" id="feedback-block" hidden>
-            <header class="feedback-header">
-                <p class="feedback-title">Обратная связь</p>
-                <p class="feedback-score">8 / 10</p>
-            </header>
+<header class="task-header">
+    <div class="task-header__meta">
+        <span id="session-track" class="task-header__track">Frontend · Senior · 10 вопросов</span>
+    </div>
+    <h1 id="session-progress-title" class="task-header__title">Вопрос 1 из 10</h1>
+</header>
 
-            <p class="feedback-text">
-                Хороший ответ! Вы правильно описали основные концепции. Event Loop действительно является ключевым механизмом асинхронности. Стоит добавить: микротаски (Promise callbacks) обрабатываются перед макротасками (setTimeout), что важно для понимания порядка выполнения.
-            </p>
-        </article>
-    </main>
-    <script src="task-session.js"></script>
+<main class="task-page">
+    <article class="task-block">
+        <p class="task-inf">
+            <span class="task-type">JavaScript</span>
+            <span id="task-number" class="task-number">Вопрос 1 из 10</span>
+        </p>
+        <p class="task-text">
+            Объясните разницу между Event Loop, Call Stack и Callback Queue в JavaScript. Как они взаимодействуют при обработке асинхронного кода?
+        </p>
+    </article>
+
+    <article class="answer-block">
+        <form action="#" method="post" class="answer-form" id="answer-form">
+            <label for="answer" class="answer-label">Ваш ответ</label>
+            <textarea id="answer" name="answer" placeholder="Введите код или текст..."></textarea>
+            <div class="answer-actions">
+                <button type="submit" class="answer-submit" id="answer-submit">Отправить ответ</button>
+                <button type="button" class="next-task-btn is-hidden" id="next-task-btn" hidden>Следующее задание</button>
+            </div>
+        </form>
+    </article>
+
+    <article class="feedback-block is-hidden" id="feedback-block" hidden>
+        <header class="feedback-header">
+            <p class="feedback-title">Обратная связь</p>
+            <p class="feedback-score">8 / 10</p>
+        </header>
+
+        <p class="feedback-text">
+            Хороший ответ! Вы правильно описали основные концепции. Event Loop действительно является ключевым механизмом асинхронности. Стоит добавить: микротаски (Promise callbacks) обрабатываются перед макротасками (setTimeout), что важно для понимания порядка выполнения.
+        </p>
+    </article>
+</main>
+<script src="task-session.js"></script>
 </body>
 </html>
