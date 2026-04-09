@@ -74,4 +74,17 @@ function initMenu() {
     }
 }
 
+function FindAndUpdate(className, date){
+    let numText = document.querySelector(className);
+    numText.innerText = date;
+}
+
+//Вот сюда вот сувайте всё, что надо
+function InsertSessionInfo(){
+    let inf = JSON.parse(sessionStorage.getItem('interviewSession'));
+    let headerText = `${inf.direction} ${inf.level} завершено`;
+    FindAndUpdate('.feedback-header', headerText);
+}
+
+InsertSessionInfo();
 document.addEventListener('DOMContentLoaded', initMenu);

@@ -39,3 +39,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+TASK_COUNT = 1;
+
+function FindAndUpdate(className, date){
+    let numText = document.querySelector(className);
+    numText.innerText = date;
+}
+
+
+function InsertSessionInf(){
+    let inf = JSON.parse(sessionStorage.getItem('interviewSession'));
+    let headerText = `${inf.direction} · ${inf.level} · ${inf.count} вопросов`;
+    FindAndUpdate('.task-header__track', headerText);
+
+    let numText = `Вопрос ${TASK_COUNT} из ${inf.count}`;
+    FindAndUpdate('.task-header__title', numText);
+
+    FindAndUpdate('.task-number', numText);
+
+
+}
+
+InsertSessionInf();
