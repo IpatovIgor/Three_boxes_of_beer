@@ -74,17 +74,79 @@ function initMenu() {
     }
 }
 
-function FindAndUpdate(className, date){
-    let numText = document.querySelector(className);
-    numText.innerText = date;
+const DIRECTION_LABELS = {
+    'frontend': 'Frontend',
+    'backend': 'Backend',
+    'fullstack': 'Fullstack',
+    'data-science': 'Data Science',
+    'devops': 'DevOps'
+};
+
+const LEVEL_LABELS = {
+    'junior': 'Junior',
+    'middle': 'Middle',
+    'senior': 'Senior'
+};
+
+function FindAndUpdate(selector, value) {
+    const el = document.querySelector(selector);
+    if (el) el.innerText = value;
 }
 
-//Вот сюда вот сувайте всё, что надо
-function InsertSessionInfo(){
-    let inf = JSON.parse(sessionStorage.getItem('interviewSession'));
-    let headerText = `${inf.direction} ${inf.level} завершено`;
-    FindAndUpdate('.feedback-header', headerText);
+function renderWeakTopics(weakTopics) {
+    const panel = document.querySelector('.wrang-panel');
+    if (!panel) return;
+
+    const heading = panel.querySelector('h3');
+    panel.innerHTML = '';
+    if (heading) panel.appendChild(heading);
+
+    if (!weakTopics || weakTopics.length === 0) {
+        const empty = document.createElement('p');
+        empty.className = 'topek';
+        empty.textContent = 'Слабых тем нет — отличная работа!';
+        panel.appendChild(empty);
+        return;
+    }
+
+    for (const t of weakTopics) {
+        const row = document.createElement('div');
+        row.className = 'wrang';
+
+        const topic = document.createElement('p');
+        topic.className = 'topek';
+        topic.textContent = t.topic;
+
+        const points = document.createElement('p');
+        points.className = 'points';
+        points.textContent = `${t.score}/10`;
+
+        row.appendChild(topic);
+        row.appendChild(points);
+        panel.appendChild(row);
+    }
 }
 
-InsertSessionInfo();
-document.addEventListener('DOMContentLoaded', initMenu);
+function InsertSessionInfo() {
+    const results = JSON.parse(sessionStorage.getItem('interviewResults'));
+    const info = JSON.parse(sessionStorage.getItem('interviewSession'));
+    if (!results || !info) return;
+
+    const dir = DIRECTION_LABELS[info.direction] || info.direction;
+    const level = LEVEL_LABELS[info.level] || info.level;
+    FindAndUpdate('.feedback-header', `${dir} ${level} завершено`);
+
+    const stats = document.querySelectorAll('.stat-panel .stat .num');
+    if (stats.length >= 3) {
+        stats[0].textContent = results.average;
+        stats[1].textContent = results.count;
+        stats[2].textContent = `${results.durationMin} мин`;
+    }
+
+    renderWeakTopics(results.weakTopics);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initMenu();
+    InsertSessionInfo();
+});
