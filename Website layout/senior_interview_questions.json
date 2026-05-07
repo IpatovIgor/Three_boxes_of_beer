@@ -1,0 +1,127 @@
+{
+  "exam_title": "Frontend Core: Senior (Selected Top 20)",
+  "level": "Senior",
+  "total_questions": 20,
+  "questions": [
+    {
+      "id": 1,
+      "category": "Architecture",
+      "question": "Сравните Runtime (Module Federation) и Build-time (NPM packages) интеграцию микрофронтендов. В каких случаях вы выберете каждый из подходов?",
+      "focus": "Shared dependencies, версионность и скорость доставки фич."
+    },
+    {
+      "id": 2,
+      "category": "Architecture",
+      "question": "Какие архитектурные паттерны вы применяете для управления сложностью в Large-scale приложениях (FSD, Clean Architecture, DDD)? Обоснуйте выбор.",
+      "focus": "Масштабируемость команды и кодовой базы."
+    },
+    {
+      "id": 3,
+      "category": "V8 & JS Internals",
+      "question": "Как промежуточный JIT-компилятор Maglev использует информацию о типах из рантайма для построения SSA-графа, и как реализован механизм деоптимизации?",
+      "focus": "Понимание работы TurboFan, Ignition и влияния стабильности типов на производительность."
+    },
+    {
+      "id": 4,
+      "category": "V8 & JS Internals",
+      "question": "Опишите жизненный цикл объекта в куче V8. Как работают Semi-space, Young Generation и Old Generation, и как это влияет на частоту пауз GC?",
+      "focus": "Управление памятью и предотвращение Memory Bloat."
+    },
+    {
+      "id": 5,
+      "category": "V8 & JS Internals",
+      "question": "Как механизм Slack Tracking в V8 взаимодействует с малым сборщиком мусора (Scavenger) и почему важно 'магическое число 7'?",
+      "focus": "Низкоуровневая оптимизация объектов и скрытые классы."
+    },
+    {
+      "id": 6,
+      "category": "Memory Management",
+      "question": "В чем архитектурный смысл слабого удержания (weakly held) ключей в WeakMap, и почему невозможность итерации по ней — условие корректной работы GC?",
+      "focus": "Работа с эфемерными DOM-узлами и предотвращение утечек."
+    },
+    {
+      "id": 7,
+      "category": "Performance",
+      "question": "Как глубокий анализ метрики INP разделяет задержку на Input Delay, Processing Duration и Presentation Delay? Как оптимизировать каждый этап?",
+      "focus": "Yielding to main thread, scheduler.yield() и профилирование."
+    },
+    {
+      "id": 8,
+      "category": "Performance",
+      "question": "Почему Layout Thrashing ломает асинхронный конвейер рендеринга браузера, и как размер DOM-дерева нелинейно увеличивает Presentation Delay?",
+      "focus": "Понимание критического пути рендеринга (Critical Rendering Path)."
+    },
+    {
+      "id": 9,
+      "category": "Frameworks",
+      "question": "В чем фундаментальная разница между 'Hydration' и 'Resumability' (Qwik)? Какие проблемы SSR это решает?",
+      "focus": "Стоимость выполнения JS на клиенте и O(1) загрузка."
+    },
+    {
+      "id": 10,
+      "category": "Frameworks",
+      "question": "Как работают React Server Components (RSC) на протокольном уровне? Чем они отличаются от классического SSR?",
+      "focus": "Стриминг данных, отсутствия гидратации на сервере и сериализация."
+    },
+    {
+      "id": 11,
+      "category": "Frameworks",
+      "question": "Спроектируйте систему 'Fine-grained reactivity' с нуля. Какие структуры данных необходимы для эффективного трекинга зависимостей (Signals)?",
+      "focus": "Реализация эффектов и графа зависимостей без VDOM."
+    },
+    {
+      "id": 12,
+      "category": "Security",
+      "question": "Как настроить Trusted Types API для защиты от DOM-based XSS в крупном энтерпрайз-проекте?",
+      "focus": "Современные стандарты безопасности и типизация данных в DOM."
+    },
+    {
+      "id": 13,
+      "category": "Security & Infra",
+      "question": "Проблема 'Supply Chain Attack': как выстроить процесс аудита зависимостей в компании, где более 1000 npm-пакетов?",
+      "focus": "Lock-файлы, Snyk/Socket, риски postinstall скриптов."
+    },
+    {
+      "id": 14,
+      "category": "Network",
+      "question": "В чем разница в решении Head-of-Line Blocking между HTTP/2 и HTTP/3 (QUIC)?",
+      "focus": "Понимание TCP vs UDP и бинарного кадрирования."
+    },
+    {
+      "id": 15,
+      "category": "Infrastructure",
+      "question": "Разработайте стратегию миграции с Webpack на Vite/Turbopack для монорепозитория. Какие подводные камни ожидаются?",
+      "focus": "HMR, обработка CommonJS и графы модулей."
+    },
+    {
+      "id": 16,
+      "category": "Web API",
+      "question": "В каких сценариях вы выберете WebAssembly вместо JS, и как организовать обмен данными с минимальными накладными расходами?",
+      "focus": "Memory buffers и тяжелые вычисления."
+    },
+    {
+      "id": 17,
+      "category": "Architecture",
+      "question": "Как спроектировать BFF (Backend for Frontend) слой для мобильной и веб-версии одновременно?",
+      "focus": "Агрегация API, минимизация payload и управление авторизацией."
+    },
+    {
+      "id": 18,
+      "category": "Strategy",
+      "question": "Как организовать систему A/B тестирования на уровне инфраструктуры (Edge), чтобы избежать Layout Shift и мигания контента?",
+      "focus": "Edge-side редиректы и серверная инъекция конфигурации."
+    },
+    {
+      "id": 19,
+      "category": "Strategy",
+      "question": "Как обеспечить долгосрочную поддержку (LTS) проекта на 5-7 лет без полной переписки?",
+      "focus": "Инкапсуляция вендоров, выбор стабильного стека, документация архитектуры."
+    },
+    {
+      "id": 20,
+      "category": "Performance",
+      "question": "Что такое Resource Prioritization (fetchpriority, Priority Hints)? Как это влияет на LCP в сложных SPA?",
+      "focus": "Тонкая настройка очередности загрузки критических ресурсов."
+    }
+  ]
+}

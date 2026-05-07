@@ -82,24 +82,184 @@ body {
     margin-bottom: 10px;
 }
 
-#answer {
-    width: 100%;
-    min-height: 170px;
-    resize: vertical;
-    background-color: #111827;
-    border: 1px solid #1f2937;
-    color: #e5e7eb;
-    border-radius: 10px;
-    padding: 14px;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 14px;
-    line-height: 1.5;
+/* ===== EDITOR TOOLBAR ===== */
+.editor-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-#answer:focus {
+.tb-field {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.tb-field select {
+    background-color: #0b1220;
+    color: #e5e7eb;
+    border: 1px solid #1f2937;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.tb-field select:focus {
     outline: none;
     border-color: #0891b2;
 }
+
+.tb-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #9ca3af;
+    cursor: pointer;
+}
+
+.tb-toggle input { accent-color: #06b6d4; }
+
+/* ===== EDITOR ===== */
+.answer-editor {
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid #1f2937;
+    background-color: #111827;
+    overflow: hidden;
+}
+
+.answer-editor:focus-within {
+    border-color: #0891b2;
+}
+
+.answer-overlay,
+#answer {
+    margin: 0;
+    padding: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0;
+    tab-size: 4;
+    border: 0;
+    box-sizing: border-box;
+}
+
+.answer-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    color: #e5e7eb;
+    background: transparent;
+    overflow: hidden;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.answer-overlay code {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    background: transparent;
+    color: inherit;
+    white-space: inherit;
+}
+
+#answer {
+    position: relative;
+    width: 100%;
+    min-height: 200px;
+    resize: vertical;
+    background-color: transparent;
+    color: transparent;
+    caret-color: #f9fafb;
+    -webkit-text-fill-color: transparent;
+    outline: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow: auto;
+}
+
+#answer::placeholder {
+    color: #4b5563;
+    -webkit-text-fill-color: #4b5563;
+}
+
+#answer::selection {
+    background-color: rgba(34, 211, 238, 0.35);
+    -webkit-text-fill-color: transparent;
+}
+
+/* When highlight is OFF — show plain text directly in textarea */
+.answer-editor.no-highlight .answer-overlay { display: none; }
+.answer-editor.no-highlight #answer {
+    color: #e5e7eb;
+    -webkit-text-fill-color: #e5e7eb;
+}
+
+/* Font themes */
+.answer-editor[data-font="jetbrains"] .answer-overlay,
+.answer-editor[data-font="jetbrains"] #answer {
+    font-family: "JetBrains Mono", monospace;
+}
+.answer-editor[data-font="fira"] .answer-overlay,
+.answer-editor[data-font="fira"] #answer {
+    font-family: "Fira Code", "JetBrains Mono", monospace;
+}
+.answer-editor[data-font="consolas"] .answer-overlay,
+.answer-editor[data-font="consolas"] #answer {
+    font-family: Consolas, "Courier New", monospace;
+}
+.answer-editor[data-font="system"] .answer-overlay,
+.answer-editor[data-font="system"] #answer {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Liberation Mono", monospace;
+}
+
+/* Background themes */
+.answer-editor[data-bg="midnight"] { background-color: #0b1220; }
+.answer-editor[data-bg="slate"]    { background-color: #1f2937; }
+.answer-editor[data-bg="solar"]    { background-color: #2a2416; }
+.answer-editor[data-bg="light"]    { background-color: #f8fafc; }
+
+.answer-editor[data-bg="light"] .answer-overlay {
+    color: #0f172a;
+}
+.answer-editor[data-bg="light"] #answer {
+    caret-color: #0f172a;
+}
+.answer-editor[data-bg="light"].no-highlight #answer {
+    color: #0f172a;
+    -webkit-text-fill-color: #0f172a;
+}
+.answer-editor[data-bg="light"] #answer::placeholder {
+    color: #94a3b8;
+    -webkit-text-fill-color: #94a3b8;
+}
+
+/* Syntax tokens */
+.tok-kw      { color: #c084fc; font-weight: 600; }
+.tok-num     { color: #fbbf24; }
+.tok-str     { color: #86efac; }
+.tok-com     { color: #6b7280; font-style: italic; }
+.tok-id      { color: #67e8f9; }
+.tok-op      { color: #f472b6; }
+.tok-punct   { color: #94a3b8; }
+
+.answer-editor[data-bg="light"] .tok-kw    { color: #7c3aed; }
+.answer-editor[data-bg="light"] .tok-num   { color: #b45309; }
+.answer-editor[data-bg="light"] .tok-str   { color: #047857; }
+.answer-editor[data-bg="light"] .tok-com   { color: #6b7280; }
+.answer-editor[data-bg="light"] .tok-id    { color: #0e7490; }
+.answer-editor[data-bg="light"] .tok-op    { color: #be185d; }
+.answer-editor[data-bg="light"] .tok-punct { color: #475569; }
 
 .answer-submit {
     margin-top: 16px;

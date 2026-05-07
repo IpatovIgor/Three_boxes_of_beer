@@ -1,0 +1,15 @@
+{
+    "sources": {
+        "backend|middle":      ["middle_backend_core_questions.json", "middle_algorithms_questions.json"],
+        "backend|senior":      ["senior_backend_core_questions.json", "senior_database_top20.json", "senior_system_design_questions.json"],
+        "fullstack|middle":    ["middle_backend_core_questions.json", "middle_algorithms_questions.json"],
+        "fullstack|senior":    ["senior_backend_core_questions.json", "senior_system_design_questions.json"],
+        "frontend|middle":     ["middle_algorithms_questions.json"],
+        "frontend|senior":     ["senior_system_design_questions.json"],
+        "data-science|middle": ["middle_algorithms_questions.json"],
+        "data-science|senior": ["senior_system_design_questions.json"],
+        "devops|middle":       ["middle_backend_core_questions.json"],
+        "devops|senior":       ["senior_system_design_questions.json", "senior_database_top20.json"]
+    },
+    "fallback": ["middle_backend_core_questions.json"]
+}

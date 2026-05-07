@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои сессии</title>
+    <link rel="stylesheet" href="Sessions.css">
+</head>
+<body>
+<button class="menu-toggle" id="menuToggle">☰</button>
+
+<nav class="menu" id="sideMenu">
+    <ul>
+        <li class="menu-item" data-href="../main/MainPage.html">На главную</li>
+        <li class="menu-item active" data-href="Sessions.html">Сессии</li>
+    </ul>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<header class="sessions-header">
+    <h1>Мои сессии</h1>
+    <p class="sessions-sub">История прохождений на этом устройстве</p>
+    <p class="sessions-device">Device ID: <span id="device-id">—</span></p>
+</header>
+
+<main class="sessions-page">
+    <section class="sessions-summary" id="sessions-summary"></section>
+
+    <section class="sessions-list" id="sessions-list">
+        <p class="sessions-empty">Ещё нет завершённых сессий.</p>
+    </section>
+
+    <section class="sessions-actions">
+        <button id="clear-history" class="danger-btn">Очистить историю</button>
+    </section>
+</main>
+
+<script src="../shared/storage.js"></script>
+<script src="Sessions.js"></script>
+</body>
+</html>

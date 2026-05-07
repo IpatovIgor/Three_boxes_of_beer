@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<button class="menu-toggle" id="menuToggle">☰</button>
+
+<nav class="menu" id="sideMenu">
+    <ul>
+        <li class="menu-item active" data-href="MainPage.html">На главную</li>
+        <li class="menu-item" data-href="../sessions/Sessions.html">Сессии</li>
+    </ul>
+</nav>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
 <main class="page">
     <section class="session-card">
         <h1>Новая сессия</h1>
@@ -93,6 +104,7 @@
         </div>
     </section>
 </main>
+<script src="../shared/storage.js"></script>
 <script src="session-start.js"></script>
 </body>
 </html>

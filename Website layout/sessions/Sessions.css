@@ -1,0 +1,247 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background-color: #020617;
+    color: #e5e7eb;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.sessions-header {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 34px 20px 0 80px;
+}
+
+.sessions-header h1 {
+    margin: 12px 0 6px;
+    font-size: 32px;
+    color: #f9fafb;
+}
+
+.sessions-sub {
+    margin: 0;
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+.sessions-device {
+    margin: 6px 0 0;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.sessions-device span {
+    color: #22d3ee;
+}
+
+.sessions-page {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 22px 20px 40px;
+    display: grid;
+    gap: 18px;
+}
+
+.sessions-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+}
+
+.summary-card {
+    background-color: #2E2E2E;
+    border-radius: 14px;
+    padding: 16px 18px;
+}
+
+.summary-card .num {
+    font-size: 22px;
+    color: #f9fafb;
+    margin: 0 0 4px;
+}
+
+.summary-card .str {
+    font-size: 12px;
+    color: #9ca3af;
+    margin: 0;
+}
+
+.sessions-list {
+    display: grid;
+    gap: 12px;
+}
+
+.session-row {
+    background-color: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px 16px;
+    align-items: center;
+}
+
+.session-row__title {
+    margin: 0;
+    color: #f9fafb;
+    font-size: 16px;
+}
+
+.session-row__meta {
+    margin: 0;
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+.session-row__score {
+    background-color: #0f3a46;
+    color: #22d3ee;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    justify-self: end;
+}
+
+.session-row__topics {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.session-row__topic {
+    background-color: #1e293b;
+    color: #cbd5e1;
+    border-radius: 999px;
+    padding: 3px 10px;
+    font-size: 11px;
+}
+
+.sessions-empty {
+    color: #6b7280;
+    font-size: 14px;
+    text-align: center;
+    padding: 30px;
+}
+
+.sessions-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.danger-btn {
+    border: 1px solid #7f1d1d;
+    background-color: #1f0d0d;
+    color: #fca5a5;
+    border-radius: 10px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+}
+
+.danger-btn:hover {
+    background-color: #7f1d1d;
+    color: #fff;
+}
+
+/* ===== БУРГЕР И МЕНЮ (как в Task) ===== */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    background-color: #2E2E2E;
+    border: 1px solid #111827;
+    color: #9ca3af;
+    font-size: 24px;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-toggle:hover {
+    background-color: #1e293b;
+    color: #f9fafb;
+    border-color: #06b6d4;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100%;
+    background-color: #2E2E2E;
+    padding: 80px 20px 20px;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    border-right: 1px solid #111827;
+}
+
+.menu.open { left: 0; }
+
+.menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-item {
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #9ca3af;
+    padding: 12px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background-color: #1e293b;
+    color: #f9fafb;
+}
+
+.menu-item::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background-color: #111827;
+}
+
+.menu-item.active {
+    background-color: #1e293b;
+    color: #f9fafb;
+}
+
+.menu-item.active::before {
+    background-color: #06b6d4;
+}
+
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}

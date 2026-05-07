@@ -13,7 +13,8 @@
 <!-- Боковое меню -->
 <nav class="menu" id="sideMenu">
     <ul>
-        <li class="menu-item">На главную</li>
+        <li class="menu-item" data-href="../main/MainPage.html">На главную</li>
+        <li class="menu-item" data-href="../sessions/Sessions.html">Сессии</li>
     </ul>
 </nav>
 
@@ -41,7 +42,37 @@
     <article class="answer-block">
         <form action="#" method="post" class="answer-form" id="answer-form">
             <label for="answer" class="answer-label">Ваш ответ</label>
-            <textarea id="answer" name="answer" placeholder="Введите код или текст..."></textarea>
+
+            <div class="editor-toolbar" id="editor-toolbar">
+                <label class="tb-field">
+                    <span>Шрифт</span>
+                    <select id="font-select">
+                        <option value="jetbrains">JetBrains Mono</option>
+                        <option value="fira">Fira Code</option>
+                        <option value="consolas">Consolas</option>
+                        <option value="system">System Mono</option>
+                    </select>
+                </label>
+                <label class="tb-field">
+                    <span>Фон</span>
+                    <select id="bg-select">
+                        <option value="midnight">Midnight</option>
+                        <option value="slate">Slate</option>
+                        <option value="solar">Solar</option>
+                        <option value="light">Light</option>
+                    </select>
+                </label>
+                <label class="tb-toggle">
+                    <input type="checkbox" id="highlight-toggle" checked>
+                    <span>Подсветка кода</span>
+                </label>
+            </div>
+
+            <div class="answer-editor" id="answer-editor" data-font="jetbrains" data-bg="midnight">
+                <pre class="answer-overlay" id="answer-overlay" aria-hidden="true"><code></code></pre>
+                <textarea id="answer" name="answer" placeholder="Введите код или текст..." spellcheck="false"></textarea>
+            </div>
+
             <div class="answer-actions">
                 <button type="submit" class="answer-submit" id="answer-submit">Отправить ответ</button>
                 <button type="button" class="next-task-btn is-hidden" id="next-task-btn" hidden>Следующее задание</button>
@@ -60,6 +91,10 @@
         </p>
     </article>
 </main>
+<script src="../shared/storage.js"></script>
+<script src="../shared/question-loader.js"></script>
+<script src="../shared/ai-evaluator.js"></script>
+<script src="answer-editor.js"></script>
 <script src="task-session.js"></script>
 </body>
 </html>

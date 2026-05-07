@@ -37,22 +37,16 @@ function handleEscapeKey(event, menu, overlay) {
     }
 }
 
-function handleHomeClick(event) {
-    window.location.href = "../main/MainPage.html";
-}
-
 function initMenu() {
     const menuToggle = document.getElementById('menuToggle');
     const sideMenu = document.getElementById('sideMenu');
     const menuOverlay = document.getElementById('menuOverlay');
-    const homeMenuItem = document.querySelector('.menu-item');
 
     if (!menuToggle || !sideMenu || !menuOverlay) {
         console.error("Menu elements not found");
         return;
     }
 
-    // Восстанавливаем состояние меню
     if (getMenuState()) {
         openMenu(sideMenu, menuOverlay);
     }
@@ -69,9 +63,11 @@ function initMenu() {
         handleEscapeKey(event, sideMenu, menuOverlay);
     });
 
-    if (homeMenuItem) {
-        homeMenuItem.addEventListener('click', handleHomeClick);
-    }
+    sideMenu.querySelectorAll('[data-href]').forEach(item => {
+        item.addEventListener('click', () => {
+            window.location.href = item.dataset.href;
+        });
+    });
 }
 
 const DIRECTION_LABELS = {
@@ -128,12 +124,11 @@ function renderWeakTopics(weakTopics) {
 }
 
 function InsertSessionInfo() {
-    const results = JSON.parse(sessionStorage.getItem('interviewResults'));
-    const info = JSON.parse(sessionStorage.getItem('interviewSession'));
-    if (!results || !info) return;
+    const results = TBoxesStorage.getLastResult();
+    if (!results) return;
 
-    const dir = DIRECTION_LABELS[info.direction] || info.direction;
-    const level = LEVEL_LABELS[info.level] || info.level;
+    const dir = DIRECTION_LABELS[results.direction] || results.direction;
+    const level = LEVEL_LABELS[results.level] || results.level;
     FindAndUpdate('.feedback-header', `${dir} ${level} завершено`);
 
     const stats = document.querySelectorAll('.stat-panel .stat .num');
