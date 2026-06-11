@@ -40,6 +40,7 @@
 body {
     margin: 0;
     min-height: 100vh;
+    overflow-x: hidden;
     background:
         radial-gradient(circle at top left, rgba(34, 211, 238, 0.12), transparent 34rem),
         linear-gradient(135deg, var(--color-bg), var(--color-bg-deep));
@@ -70,48 +71,89 @@ textarea:focus-visible,
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 24px 32px;
-    gap: 32px;
+    padding: 52px 24px 36px;
+    gap: var(--space-lg);
     box-sizing: border-box;
 }
 
 .session-card {
     width: 100%;
     max-width: 960px;
-    color: #9ca3af;
-    background-color: #2E2E2E;
-    border-radius: 24px;
-    padding: 32px 40px 40px;
+    min-width: 0;
+    color: var(--color-muted);
+    background:
+        linear-gradient(145deg, rgba(16, 24, 39, 0.96), rgba(23, 32, 51, 0.92)),
+        radial-gradient(circle at 92% 8%, rgba(34, 211, 238, 0.18), transparent 20rem);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 34px 40px 40px;
     box-sizing: border-box;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+}
+
+.session-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.08), transparent 38%);
+    opacity: 0.42;
+}
+
+.session-card > * {
+    position: relative;
+}
+
+.session-card__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin: 0 0 12px;
+    padding: 6px 10px;
+    border: 1px solid rgba(34, 211, 238, 0.26);
+    border-radius: 999px;
+    background: var(--color-primary-soft);
+    color: var(--color-primary);
+    font-size: 12px;
+    line-height: 1.2;
 }
 
 .session-card h1 {
-    font-size: 24px;
-    font-weight: 500;
-    color: #f9fafb;
-    margin: 0 0 10px 0;
+    font-size: 34px;
+    line-height: 1.12;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 var(--space-sm) 0;
 }
 
-.session-card p {
+.session-card__lead {
+    max-width: 660px;
     font-size: 14px;
-    font-weight: normal;
-    color: #9ca3af;
-    margin: 0 0 24px 0;
+    line-height: 1.7;
+    font-weight: 400;
+    color: var(--color-text-soft);
+    margin: 0 0 var(--space-lg) 0;
+    overflow-wrap: anywhere;
 }
 
 .panel {
-    background-color: #2E2E2E;
-    border-radius: 24px;
-    padding: 24px 24px 28px;
+    background-color: rgba(2, 6, 23, 0.32);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: calc(var(--radius-lg) - 4px);
+    padding: 26px;
     box-sizing: border-box;
+    min-width: 0;
 }
 
 .panel h2 {
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #6b7280;
-    margin: 18px 0 8px 0;
+    color: var(--color-muted);
+    margin: 22px 0 10px 0;
 }
 
 .panel h2:first-of-type {
@@ -121,100 +163,148 @@ textarea:focus-visible,
 .div-group,
 .level-group,
 .count-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+    gap: var(--space-sm);
+}
+
+.count-group {
+    grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
 }
 
 .dir-option input,
 .level-option input,
 .count-option input {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
 }
 
 .dir-option span,
 .level-option span,
 .count-option span {
-    display: inline-block;
-    padding: 8px 20px;
-    background: #2E2E2E;
-    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 18px;
+    background: rgba(16, 24, 39, 0.8);
+    color: var(--color-text-soft);
     font-size: 14px;
-    font-weight: normal;
+    line-height: 1.2;
+    font-weight: 600;
     border-radius: 999px;
     cursor: pointer;
-    transition: all 0.15s ease;
-    border: 1px solid #111827;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    border: 1px solid var(--color-border);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .dir-option span:hover,
 .level-option span:hover,
 .count-option span:hover {
-    background: #1e293b;
-    color: #f9fafb;
+    background: var(--color-surface-raised);
+    color: var(--color-text);
+    border-color: var(--color-border-strong);
+    transform: translateY(-1px);
+}
+
+.dir-option input:focus-visible + span,
+.level-option input:focus-visible + span,
+.count-option input:focus-visible + span {
+    outline: 3px solid rgba(34, 211, 238, 0.36);
+    outline-offset: 3px;
 }
 
 .dir-option input:checked + span,
 .level-option input:checked + span,
 .count-option input:checked + span {
-    background: #06b6d4;
-    color: #f9fafb;
-    border-color: #06b6d4;
+    background: linear-gradient(135deg, var(--color-primary), #38bdf8);
+    color: #062231;
+    border-color: transparent;
+    box-shadow: 0 12px 24px rgba(34, 211, 238, 0.2);
 }
 
 .panel button {
-    margin-top: 32px;
+    margin-top: var(--space-xl);
     width: 100%;
-    padding: 14px 0;
-    border-radius: 12px;
+    min-height: 52px;
+    padding: 14px 20px;
+    border-radius: var(--radius-md);
     border: none;
-    background-color: #06b6d4;
-    font-family: 'JetBrains Mono', monospace;
+    background: linear-gradient(135deg, var(--color-primary), #38bdf8);
+    font-family: var(--font-main);
     font-size: 16px;
-    font-weight: 500;
-    color: #f9fafb;
+    font-weight: 700;
+    color: #062231;
     cursor: pointer;
-    transition: background-color 0.15s ease;
+    box-shadow: 0 18px 34px rgba(34, 211, 238, 0.2);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
 }
 
 .panel button:hover {
-    background-color: #0891b2;
+    filter: brightness(1.04);
+    transform: translateY(-1px);
+    box-shadow: 0 22px 40px rgba(34, 211, 238, 0.25);
+}
+
+.panel button:active {
+    transform: translateY(0);
 }
 
 .statistic {
     width: 100%;
     max-width: 960px;
-    font-family: 'JetBrains Mono', monospace;
-    color: #9ca3af;
+    min-width: 0;
+    font-family: var(--font-main);
+    color: var(--color-muted);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-md);
 }
 
-.statistic div {
-    border-radius: 14px;
-    background-color: #2E2E2E;
-    padding: 18px 20px;
-    min-height: 72px;
+.stat-card {
+    border-radius: var(--radius-md);
+    background: rgba(16, 24, 39, 0.88);
+    border: 1px solid var(--color-border);
+    padding: 20px;
+    min-height: 92px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::after {
+    content: "";
+    position: absolute;
+    inset: auto 18px 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), transparent);
+    opacity: 0.65;
 }
 
 .statistic div .num {
-    font-size: 20px;
-    color: #f9fafb;
+    font-size: 22px;
+    line-height: 1.15;
+    color: var(--color-text);
     margin: 0 0 4px 0;
+    overflow-wrap: anywhere;
 }
 
 .statistic div .str {
     font-size: 12px;
-    color: #9ca3af;
+    line-height: 1.35;
+    color: var(--color-muted);
     margin: 0;
 }
 
-/* ===== БУРГЕР И БОКОВОЕ МЕНЮ ===== */
 .menu-toggle {
     position: fixed;
     top: 20px;
@@ -338,8 +428,50 @@ textarea:focus-visible,
 
 @media (max-width: 768px) {
     .page {
+        padding-top: 88px;
         padding-left: 70px;
         padding-right: 16px;
+    }
+
+    .session-card {
+        padding: 24px 18px 20px;
+    }
+
+    .session-card h1 {
+        font-size: 28px;
+    }
+
+    .panel {
+        padding: 18px;
+    }
+
+    .div-group,
+    .level-group,
+    .count-group {
+        grid-template-columns: 1fr;
+    }
+
+    .statistic {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .page {
+        align-items: stretch;
+        padding-left: 16px;
+        padding-right: 16px;
+        overflow: hidden;
+    }
+
+    .session-card,
+    .statistic {
+        width: calc(100vw - 32px);
+        max-width: 100%;
+    }
+
+    .session-card__eyebrow {
+        max-width: 100%;
     }
 }
 

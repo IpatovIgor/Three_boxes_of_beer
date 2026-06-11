@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<button class="menu-toggle" id="menuToggle">☰</button>
+<button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню">☰</button>
 
-<nav class="menu" id="sideMenu">
+<nav class="menu" id="sideMenu" aria-label="Основная навигация">
     <ul>
         <li class="menu-item active" data-href="MainPage.html">На главную</li>
         <li class="menu-item" data-href="../sessions/Sessions.html">Сессии</li>
@@ -19,9 +19,10 @@
 <div class="menu-overlay" id="menuOverlay"></div>
 
 <main class="page">
-    <section class="session-card">
-        <h1>Новая сессия</h1>
-        <p>Настройте параметры и начните подготовку к техническому собеседованию</p>
+    <section class="session-card" aria-labelledby="session-title">
+        <p class="session-card__eyebrow">Тренировка собеседования</p>
+        <h1 id="session-title">Новая сессия</h1>
+        <p class="session-card__lead">Настройте параметры и начните подготовку к техническому собеседованию</p>
         <section class="panel">
             <form id="session-form" action="/create-session" method="POST">
                 <h2>Направление</h2>
@@ -89,16 +90,16 @@
         </section>
     </section>
     
-    <section class="statistic">
-        <div class="session-count-stat">
+    <section class="statistic" aria-label="Статистика подготовки">
+        <div class="stat-card session-count-stat">
             <p class="num">20</p>
             <p class="str">Сессий пройдено</p>
         </div>
-        <div class="session-assessment-stat">
+        <div class="stat-card session-assessment-stat">
             <p class="num">7.8</p>
             <p class="str">Средняя оценка</p>
         </div>
-        <div class="frequent-stat">
+        <div class="stat-card frequent-stat">
             <p class="num">Frontend</p>
             <p class="str">Основное направление</p>
         </div>
