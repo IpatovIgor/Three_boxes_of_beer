@@ -91,7 +91,7 @@ class TaskSession {
             this.renderCurrent();
         } catch (e) {
             console.error(e);
-            this.taskTextEl.textContent = 'Ошибка загрузки вопросов: ' + e.message;
+            this.taskTextEl.textContent = 'Ошибка загрузки вопросов. Проверьте запуск страницы через локальный сервер.';
             this.submitBtn.disabled = true;
         }
     }
