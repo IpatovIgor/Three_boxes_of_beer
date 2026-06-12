@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты сессии</title>
     <link rel="stylesheet" href="ResultPage.css">
 </head>
 <body>
 <main>
-    <button class="menu-toggle" id="menuToggle">☰</button>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню">☰</button>
 
-    <nav class="menu" id="sideMenu">
+    <nav class="menu" id="sideMenu" aria-label="Основная навигация">
         <ul>
             <li class="menu-item" data-href="../main/MainPage.html">На главную</li>
             <li class="menu-item" data-href="../sessions/Sessions.html">Сессии</li>
@@ -17,8 +18,20 @@
     </nav>
 
     <div class="result-panel">
-        <h1>Результаты сессии</h1>
-        <p class="feedback-header">Frontend Senior завершено</p>
+        <header class="result-header">
+            <div class="result-nav">
+                <span class="brand-mark">3B</span>
+                <span class="workspace-name">Три ящика пива</span>
+            </div>
+            <div class="result-title-row">
+                <div>
+                    <p class="result-eyebrow">Итог тренировки</p>
+                    <h1>Результаты сессии</h1>
+                    <p class="feedback-header">Frontend Senior завершено</p>
+                </div>
+                <a class="new-session-link" href="../main/MainPage.html">Новая сессия</a>
+            </div>
+        </header>
 
         <div class="stat-panel">
             <div class="stat">

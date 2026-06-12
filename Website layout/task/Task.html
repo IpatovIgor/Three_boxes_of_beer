@@ -7,21 +7,22 @@
     <link rel="stylesheet" href="Task.css">
 </head>
 <body>
-<!-- Кнопка-гамбургер -->
-<button class="menu-toggle" id="menuToggle">☰</button>
+<button class="menu-toggle" id="menuToggle" type="button" aria-label="Открыть меню">☰</button>
 
-<!-- Боковое меню -->
-<nav class="menu" id="sideMenu">
+<nav class="menu" id="sideMenu" aria-label="Основная навигация">
     <ul>
         <li class="menu-item" data-href="../main/MainPage.html">На главную</li>
         <li class="menu-item" data-href="../sessions/Sessions.html">Сессии</li>
     </ul>
 </nav>
 
-<!-- Оверлей -->
 <div class="menu-overlay" id="menuOverlay"></div>
 
 <header class="task-header">
+    <div class="task-shell-nav">
+        <span class="brand-mark">3B</span>
+        <span class="workspace-name">Три ящика пива</span>
+    </div>
     <div class="task-header__meta">
         <span id="session-track" class="task-header__track">Frontend · Senior · 10 вопросов</span>
     </div>
@@ -50,16 +51,16 @@
                         <option value="jetbrains">JetBrains Mono</option>
                         <option value="fira">Fira Code</option>
                         <option value="consolas">Consolas</option>
-                        <option value="system">System Mono</option>
+                        <option value="system">Системный Mono</option>
                     </select>
                 </label>
                 <label class="tb-field">
                     <span>Фон</span>
                     <select id="bg-select">
-                        <option value="midnight">Midnight</option>
-                        <option value="slate">Slate</option>
-                        <option value="solar">Solar</option>
-                        <option value="light">Light</option>
+                        <option value="midnight">Тёмный</option>
+                        <option value="slate">Серый</option>
+                        <option value="solar">Тёплый</option>
+                        <option value="light">Светлый</option>
                     </select>
                 </label>
                 <label class="tb-toggle">
