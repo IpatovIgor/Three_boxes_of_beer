@@ -159,13 +159,18 @@ a:focus-visible,
     color: var(--color-text-soft);
     font-size: 14px;
     text-decoration: none;
-    transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+    transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .history-link:hover {
     background: var(--color-surface-raised);
     color: var(--color-text);
     border-color: var(--color-muted-strong);
+    transform: translateY(-1px);
+}
+
+.history-link:active {
+    transform: translateY(1px) scale(0.99);
 }
 
 .workspace-grid {
@@ -245,7 +250,7 @@ a:focus-visible,
     font-size: 14px;
     line-height: 1;
     cursor: pointer;
-    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
 .dir-option span:hover,
@@ -254,6 +259,13 @@ a:focus-visible,
     background: var(--color-surface-raised);
     border-color: var(--color-muted-strong);
     color: var(--color-text);
+    transform: translateY(-1px);
+}
+
+.dir-option span:active,
+.level-option span:active,
+.count-option span:active {
+    transform: translateY(1px) scale(0.98);
 }
 
 .dir-option input:focus-visible + span,
@@ -304,7 +316,7 @@ a:focus-visible,
 }
 
 .panel button:active {
-    transform: translateY(0);
+    transform: translateY(1px) scale(0.99);
 }
 
 .progress-panel {
@@ -325,6 +337,13 @@ a:focus-visible,
     border: 1px solid var(--color-border-soft);
     border-radius: var(--radius-md);
     background: #202020;
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.stat-card:hover {
+    background: var(--color-surface-soft);
+    border-color: var(--color-border);
+    transform: translateY(-2px);
 }
 
 .stat-card .num {
@@ -358,13 +377,18 @@ a:focus-visible,
     color: var(--color-text-soft);
     font-size: 21px;
     cursor: pointer;
-    transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+    transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .menu-toggle:hover {
     background: var(--color-surface-raised);
     color: var(--color-text);
     border-color: var(--color-muted-strong);
+    transform: translateY(-1px);
+}
+
+.menu-toggle:active {
+    transform: translateY(1px) scale(0.96);
 }
 
 .menu {
@@ -402,13 +426,17 @@ a:focus-visible,
     border-radius: var(--radius-sm);
     color: var(--color-muted);
     cursor: pointer;
-    transition: background-color var(--transition-fast), color var(--transition-fast);
+    transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
 .menu-item:hover,
 .menu-item.active {
     background: var(--color-surface-soft);
     color: var(--color-text);
+}
+
+.menu-item:hover {
+    transform: translateX(2px);
 }
 
 .menu-item::before {
