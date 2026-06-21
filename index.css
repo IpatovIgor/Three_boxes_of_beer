@@ -248,6 +248,13 @@ a {
   font-weight: 700;
 }
 
+.member__photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .member__name {
   margin: 0 0 4px;
   color: var(--text);
